@@ -13,16 +13,29 @@ public class Solution {
             int[] arr = new int[n];
             for (int y = 0; y < n; y++) {
                 if (y == 0) {
-                    arr[y] = a + (int) Math.pow(2, y) * b;
+                    arr[y] = a + pow(2, y) * b;
                 } else {
-                    arr[y] = (int) Math.pow(2, y) * b + arr[y - 1];
+                    arr[y] = pow(2, y) * b + arr[y - 1];
                 }
             }
-
+            StringBuilder sb = new StringBuilder();
             for (int i1 : arr) {
-                System.out.println(i1);
+                sb.append(i1).append(" ");
             }
+            System.out.println(sb);
         }
         in.close();
+    }
+
+    static int pow (int number, int power) {
+        if (power == 0) {
+            return 1;
+        } else {
+            int res = 1;
+            for (int i = 1; i <= power; i++) {
+                res *= number;
+            }
+            return res;
+        }
     }
 }
